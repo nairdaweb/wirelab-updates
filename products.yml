@@ -80,7 +80,7 @@ products:
     status: released
     visibility: private
     source: manual
-    version: "1.1.0"
+    version: "1.1.1"
     date: "2026-10-01"
     min_host_version: "4.15.0"
 
