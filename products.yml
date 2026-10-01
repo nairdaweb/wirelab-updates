@@ -1,0 +1,134 @@
+# Katalog produktów updates.wirelab.pl (edytowany ręcznie).
+#
+# Składnia: podzbiór YAML czytany przez scripts/catalog.py (bez zależności):
+# mapy i listy w blokach (wcięcia spacjami), wartości w jednej linii, komentarze po "#".
+# Wersje i daty zawsze w cudzysłowie, np. version: "1.1.0", date: "2026-10-01".
+#
+# Pola produktu:
+#   id                 nazwa w adresie api/<id>.json (małe litery, cyfry, myślniki)
+#   name.pl / name.en  nazwa na stronie
+#   summary.pl / .en   jedno zdanie opisu (tylko produkty publiczne i "wkrótce")
+#   type               nodebb-plugin | chrome-extension | android-apk | gateway
+#   channel            stable (na razie jedyny kanał)
+#   status             released | soon | planned   (planned = tylko miejsce w schemacie, nie ma na stronie)
+#   visibility         public | private   (private: tylko numer wersji i data, bez changeloga i linków)
+#   source             npm    = wersje z registry.npmjs.org, changelog z CHANGELOG.md w publicznym repo
+#                      manual = version/date wpisane tutaj (ręcznie albo scripts/bump.py)
+#                      none   = brak danych
+#   npm, repo          nazwa paczki npm i repo GitHub "konto/nazwa" (tylko public)
+#   branch, changelog  gałąź i ścieżka CHANGELOG.md w repo (domyślnie main, CHANGELOG.md)
+#   min_host_version   minimalna wersja hosta (NodeBB, Chrome, Android); dla npm brana z nbbpm.compatibility
+#   version, date      tylko source: manual
+#
+# Podpisy (kroki 2-3): pola sha256, signature, pubkey_id są w api/<id>.json, na razie puste.
+
+schema: 1
+site: https://updates.wirelab.pl
+
+products:
+  - id: nodebb-plugin-topic-icons
+    name:
+      pl: Ikony tematów
+      en: Topic icons
+    summary:
+      pl: Ikony i okładki tematów dla NodeBB 4, z biblioteką ikon zarządzaną w panelu administratora.
+      en: Topic icons and covers for NodeBB 4, with an icon library managed in the ACP.
+    type: nodebb-plugin
+    channel: stable
+    status: released
+    visibility: public
+    source: npm
+    npm: nodebb-plugin-topic-icons
+    repo: nairdaweb/nodebb-plugin-topic-icons
+
+  - id: nodebb-plugin-rank-badges
+    name:
+      pl: Odznaki rang
+      en: Rank badges
+    summary:
+      pl: Rangi z liczby postów lub reputacji, odznaki grup i pasek poziomu dla NodeBB 4.
+      en: Ranks from post count or reputation, group badges and a level bar for NodeBB 4.
+    type: nodebb-plugin
+    channel: stable
+    status: released
+    visibility: public
+    source: npm
+    npm: nodebb-plugin-rank-badges
+    repo: nairdaweb/nodebb-plugin-rank-badges
+
+  - id: nodebb-plugin-wirelab-shoutbox
+    name:
+      pl: Shoutbox
+      en: Shoutbox
+    summary:
+      pl: Czat na żywo na każdej stronie forum NodeBB 4, z moderacją, wzmiankami i emoji.
+      en: Live chat on every page of a NodeBB 4 forum, with moderation, mentions and emoji.
+    type: nodebb-plugin
+    channel: stable
+    status: released
+    visibility: public
+    source: npm
+    npm: nodebb-plugin-wirelab-shoutbox
+    repo: nairdaweb/nodebb-plugin-wirelab-shoutbox
+
+  - id: nodebb-plugin-solved
+    name:
+      pl: Rozwiązane tematy
+      en: Solved topics
+    type: nodebb-plugin
+    channel: stable
+    status: released
+    visibility: private
+    source: manual
+    version: "1.1.0"
+    date: "2026-10-01"
+    min_host_version: "4.15.0"
+
+  - id: nodebb-plugin-project-card
+    name:
+      pl: Karta projektu
+      en: Project card
+    type: nodebb-plugin
+    channel: stable
+    status: released
+    visibility: private
+    source: manual
+    version: "1.1.0"
+    date: "2026-10-01"
+    min_host_version: "4.15.0"
+
+  - id: wirecap
+    name:
+      pl: WireCap
+      en: WireCap
+    summary:
+      pl: Rozszerzenie Chrome do zrzutów ekranu z edytorem. Jeszcze nieopublikowane.
+      en: Chrome extension for screenshots with an editor. Not published yet.
+    type: chrome-extension
+    channel: stable
+    status: soon
+    visibility: public
+    source: manual
+    version: "1.2.0"
+    date: "2026-10-01"
+    min_host_version: "116"
+
+  - id: ambihog
+    name:
+      pl: AmbiHog
+      en: AmbiHog
+    type: android-apk
+    channel: stable
+    status: planned
+    visibility: public
+    source: none
+
+  - id: led-auto
+    name:
+      pl: led-auto (brama)
+      en: led-auto (gateway)
+    type: gateway
+    channel: stable
+    status: planned
+    visibility: public
+    source: none
