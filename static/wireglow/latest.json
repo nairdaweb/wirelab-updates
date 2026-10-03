@@ -1,10 +1,10 @@
 {
-  "versionCode": 2,
-  "versionName": "0.1.1",
-  "apkUrl": "https://dl.wirelab.pl/wireglow/wireglow-2.apk",
-  "apkSha256": "aa17169f5975d95c05c64179d63d4c66bcacac7437d2b77b00a383dbeea2984a",
+  "versionCode": 3,
+  "versionName": "0.1.2",
+  "apkUrl": "https://dl.wirelab.pl/wireglow/wireglow-3.apk",
+  "apkSha256": "b418801b431d661df94f5f2bcb8c374cc8e8a3a54121831440d5c40d1ee6d1ac",
   "size": 25015405,
-  "notes": "test",
+  "notes": "test wydania",
   "rollback": false,
   "minVersionCode": 0
 }
