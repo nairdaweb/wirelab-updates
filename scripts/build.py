@@ -396,6 +396,10 @@ def build(out, catalog_path, get=fetch, now=None):
     with open(os.path.join(out, "index.html"), "w", encoding="utf-8") as f:
         f.write(page(site, shown, generated))
     shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(out, "assets"))
+    # Hand-placed static files (e.g. signed app update manifests) are published as they are.
+    static = os.path.join(ROOT, "static")
+    if os.path.isdir(static):
+        shutil.copytree(static, out, dirs_exist_ok=True)
     with open(os.path.join(out, ".nojekyll"), "w") as f:
         f.write("")
     return resolved
